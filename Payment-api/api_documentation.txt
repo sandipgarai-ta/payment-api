@@ -1,6 +1,6 @@
 1) MASTER DATA FETCHING
 =====================================================================
-URL=/api/masterdata
+URL=/api/master/fetchall
 METHOD=GET
 
 
