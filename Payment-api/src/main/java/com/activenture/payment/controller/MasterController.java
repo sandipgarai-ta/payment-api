@@ -11,5 +11,7 @@ public class MasterController {
 	@GetMapping("/welcome")
 	public String welcome(){
 		return "Welcome to Payment API";
+		
+		
 	}
 }
