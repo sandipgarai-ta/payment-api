@@ -13,7 +13,7 @@ import com.activenture.payment.Paymentapi.entity.Item;
 import com.activenture.payment.Paymentapi.response.MasterResponse;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/master")
 public class MasterController {
 	
 	@Autowired
@@ -33,7 +33,7 @@ public class MasterController {
 	}
 	
 	
-	@RequestMapping("/masterdata")
+	@RequestMapping("/fetchall")
 	public MasterResponse getAllMasterData() {
 		masterResponse=new MasterResponse();
 		masterResponse.setItemList(itemDao.getAllItem());

@@ -1,0 +1,43 @@
+1) MASTER DATA FETCHING
+=====================================================================
+URL=/api/masterdata
+METHOD=GET
+
+
+2) PAYMENT REQUEST
+=======================================================================
+URL=/api/masterdata
+METHOD=POST 
+REQUEST:
+
+{
+	"clientName":"",
+	"clientGST":"",
+	"email":"",
+	"contact":"",
+	"address":"",
+	"state":"",
+	"orderInfo" : {
+		"orderItem":[
+			{
+				"item":"",
+				"details":"",
+				"quantity":"",
+				"pkg_amount":"",
+				"total_amt":""
+			},
+			{
+				"item":"",
+				"details":"",
+				"quantity":"",
+				"pkg_amount":"",
+				"total_amt":""
+			}
+		],
+		"totalAmount":"",
+		"cgst":"",
+		"sgst":"",
+		"igst":"",
+		"grossTotal":""
+	}
+}
