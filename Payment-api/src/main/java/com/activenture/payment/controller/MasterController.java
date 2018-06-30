@@ -10,7 +10,7 @@ public class MasterController {
 
 	@GetMapping("/welcome")
 	public String welcome(){
-		return "Welcome to Payment API";
+		return "Welcome to Payment APhghhghhI";
 		
 		
 	}
