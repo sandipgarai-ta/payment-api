@@ -1,7 +1,91 @@
 1) MASTER DATA FETCHING
 =====================================================================
+
+*** TO SAVE NEW ITEM ***
+-------------------------
+URL=/api/master/saveitem
+METHOD=POST
+REQUEST=
+{
+	"itemCode":"I02",
+	"itemName":"E-Tax Filing Silver",
+	"itemPrice":"5000"
+}
+
+RESPONSE=
+{
+    "id": 2,
+    "itemCode": "I02",
+    "itemName": "E-Tax Filing Silver",
+    "itemPrice": "5000",
+    "createdAt": "2018-07-01T09:44:36.886+0000",
+    "active": true
+}
+
+
+
+*** TO SAVE NEW STATE ***
+-------------------------
+URL=/api/master/save-state
+METHOD=POST
+REQUEST=
+{
+	"stateCode":"S02",
+	"stateName":"State-2"
+}
+
+RESPONSE=
+{
+    "id": 5,
+    "stateCode": "S02",
+    "stateName": "State-2",
+    "createdAt": "2018-07-01T09:56:09.974+0000",
+    "active": true
+}
+
+
+*** FETCH MASTER DATA ***
+-------------------------
 URL=/api/master/fetchall
-METHOD=GET
+METHOD=POST 
+REQUEST: N/A
+RESPONSE=
+{
+    "itemList": [
+        {
+            "id": 1,
+            "itemCode": "I01",
+            "itemName": "E-Tax Filing Express",
+            "itemPrice": "2500",
+            "createdAt": "2018-07-01T09:44:04.000+0000",
+            "active": true
+        },
+        {
+            "id": 2,
+            "itemCode": "I02",
+            "itemName": "E-Tax Filing Silver",
+            "itemPrice": "5000",
+            "createdAt": "2018-07-01T09:44:37.000+0000",
+            "active": true
+        }
+    ],
+    "stateList": [
+        {
+            "id": 4,
+            "stateCode": "S01",
+            "stateName": "State-1",
+            "createdAt": "2018-07-01T09:55:54.000+0000",
+            "active": true
+        },
+        {
+            "id": 5,
+            "stateCode": "S02",
+            "stateName": "State-2",
+            "createdAt": "2018-07-01T09:56:10.000+0000",
+            "active": true
+        }
+    ]
+}
 
 
 2) PAYMENT REQUEST

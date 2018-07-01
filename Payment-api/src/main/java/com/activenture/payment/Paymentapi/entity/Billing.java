@@ -25,12 +25,16 @@ public class Billing {
 	private boolean isActive=true;
 	
 	@OneToOne
-	@JoinColumn(name="m_user")
+	@JoinColumn(name="created_user_fk")
 	private User createdBy;
 	
 	@OneToOne
-	@JoinColumn(name="m_client")
+	@JoinColumn(name="client_fk")
 	private Client client;
+	
+	@OneToOne
+	@JoinColumn(name="order_details_fk")
+	private OrderInfo orderInfo;
 	
 	
 

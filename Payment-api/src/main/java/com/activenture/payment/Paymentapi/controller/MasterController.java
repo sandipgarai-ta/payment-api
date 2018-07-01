@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.activenture.payment.Paymentapi.dao.ItemDao;
+import com.activenture.payment.Paymentapi.dao.StateDao;
 import com.activenture.payment.Paymentapi.entity.Item;
+import com.activenture.payment.Paymentapi.entity.State;
 import com.activenture.payment.Paymentapi.response.MasterResponse;
 
 @RestController
@@ -18,6 +20,10 @@ public class MasterController {
 	
 	@Autowired
 	ItemDao itemDao;
+	
+	@Autowired
+	StateDao stateDao;
+	
 	MasterResponse masterResponse;
 	
 	
@@ -37,13 +43,19 @@ public class MasterController {
 	public MasterResponse getAllMasterData() {
 		masterResponse=new MasterResponse();
 		masterResponse.setItemList(itemDao.getAllItem());
+		masterResponse.setStateList(stateDao.getAllState());
 		return masterResponse;
 	}
 	
 	
-	@RequestMapping("/master/saveitem")
+	@RequestMapping("/saveitem")
 	public Item saveItem(@RequestBody Item item) {
 		return itemDao.saveItem(item);
+	}
+	
+	@RequestMapping("/save-state")
+	public State saveState(@RequestBody State state) {
+		return stateDao.saveState(state);
 	}
 
 }

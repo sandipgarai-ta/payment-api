@@ -25,7 +25,7 @@ public class User {
 	private String userPassword;
 	
 	@OneToOne
-	@JoinColumn(name="m_user_type")
+	@JoinColumn(name="user_type_fk")
 	private UserType userType;
 	
 	@Column(name="created_at")
