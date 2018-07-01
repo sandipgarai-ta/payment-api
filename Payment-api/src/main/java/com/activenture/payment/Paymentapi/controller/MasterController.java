@@ -4,14 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.activenture.payment.Paymentapi.dao.ItemDao;
 import com.activenture.payment.Paymentapi.dao.StateDao;
+import com.activenture.payment.Paymentapi.dao.UserTypeDao;
 import com.activenture.payment.Paymentapi.entity.Item;
 import com.activenture.payment.Paymentapi.entity.State;
+import com.activenture.payment.Paymentapi.entity.UserType;
 import com.activenture.payment.Paymentapi.response.MasterResponse;
 
 @RestController
@@ -56,6 +59,16 @@ public class MasterController {
 	@RequestMapping("/save-state")
 	public State saveState(@RequestBody State state) {
 		return stateDao.saveState(state);
+	}
+	
+	// ====================================================
+	@Autowired
+	UserTypeDao userTypeDao;
+	
+	@PostMapping("/save-usertype")
+	public UserType saveUserType(UserType userType){
+		System.out.println(userType);
+		return userTypeDao.saveUserInfo(userType);
 	}
 
 }
