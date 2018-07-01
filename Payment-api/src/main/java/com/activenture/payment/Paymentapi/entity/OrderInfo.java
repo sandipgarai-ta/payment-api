@@ -29,6 +29,41 @@ public class OrderInfo {
 	
 	@Column(name="quantity")
 	private int quantity;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public List<Item> getItem() {
+		return item;
+	}
+
+	public void setItem(List<Item> item) {
+		this.item = item;
+	}
+
+	public String getItemDesc() {
+		return itemDesc;
+	}
+
+	public void setItemDesc(String itemDesc) {
+		this.itemDesc = itemDesc;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
+	
 	
 	
 	

@@ -35,6 +35,57 @@ public class Billing {
 	@OneToOne
 	@JoinColumn(name="order_details_fk")
 	private OrderInfo orderInfo;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public OrderInfo getOrderInfo() {
+		return orderInfo;
+	}
+
+	public void setOrderInfo(OrderInfo orderInfo) {
+		this.orderInfo = orderInfo;
+	}
+	
+	
+	
 	
 	
 
