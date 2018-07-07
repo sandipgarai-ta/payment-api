@@ -33,6 +33,10 @@ public class Item {
 	@Column(name="is_active")
 	private boolean isActive=true;
 
+	
+	
+	
+	
 	public long getId() {
 		return id;
 	}

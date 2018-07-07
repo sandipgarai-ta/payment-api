@@ -18,7 +18,7 @@ public class BillingController {
 	
 
 	@PostMapping("/save")
-	public String saveBilling(@RequestBody Billing billing){
-		return "Hello Billing";
+	public Billing saveBilling(@RequestBody Billing billing){
+		return billingDao.saveBilling(billing);
 	}
 }

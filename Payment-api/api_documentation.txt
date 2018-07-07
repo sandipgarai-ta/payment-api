@@ -1,5 +1,4 @@
-1) MASTER DATA FETCHING
-=====================================================================
+============================ MASTER DATA =========================================
 
 *** TO SAVE NEW ITEM ***
 -------------------------
@@ -42,6 +41,90 @@ RESPONSE=
     "createdAt": "2018-07-01T09:56:09.974+0000",
     "active": true
 }
+
+
+
+
+*** TO SAVE USER TYPE ***
+-------------------------
+URL=/api/master/save-usertype
+METHOD=POST
+REQUEST=
+{
+	
+	"typeName":"Admin"
+}
+
+RESPOSE=
+{
+    "id": 2,
+    "typeName": "Admin"
+}
+
+
+============================================= USER =================================================================
+
+
+*** TO SAVE USER ***
+-------------------------
+URL=/api/master/save-user
+METHOD=POST
+REQUEST=
+{
+	"loginId":"Calling-2",
+	"userPassword":"12345",
+	"userTypeId":"3"
+}
+
+RESPOSE=
+{
+    "id": 15,
+    "loginId": "Calling-2",
+    "userPassword": "12345",
+    "userTypeId": 3,
+    "userType": null,
+    "createdAt": "2018-07-07T09:01:21.540+0000",
+    "isActive": 1
+}
+
+
+
+
+*** TO FETCH USERS ***
+-------------------------
+URL=/api/master/getusers
+METHOD=GET
+REPONSE=
+[
+    {
+        "id": 4,
+        "loginId": "user",
+        "userPassword": "12345e",
+        "user_type_fk": null,
+        "userType": null,
+        "createdAt": "2018-07-07T07:13:37.000+0000",
+        "active": true
+    },
+    {
+        "id": 5,
+        "loginId": "user3",
+        "userPassword": "12345",
+        "user_type_fk": 1,
+        "userType": {
+            "id": 1,
+            "typeName": "TEST"
+        },
+        "createdAt": "2018-07-07T07:17:00.000+0000",
+        "active": true
+    }
+]
+
+
+
+
+==============================================================================================================
+
+
 
 
 *** FETCH MASTER DATA ***

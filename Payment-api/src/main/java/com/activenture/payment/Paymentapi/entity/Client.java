@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,9 +25,12 @@ public class Client {
 	@Column(name="is_active")
 	private boolean isActive=true;
 	
-	@OneToOne
-	@JoinColumn(name="m_user")
+	@Column(name="user_id_fk", nullable=false)
+	Long userId;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="user_id_fk", referencedColumnName="id", insertable=false, updatable=false)
 	private User createdBy;
+	
 	
 	@Column(name="client_name")
 	private String clientName;
@@ -47,6 +51,10 @@ public class Client {
 	@Column(name="client_address")
 	private String clientAddress;
 
+	
+	
+	
+	
 	public long getId() {
 		return id;
 	}

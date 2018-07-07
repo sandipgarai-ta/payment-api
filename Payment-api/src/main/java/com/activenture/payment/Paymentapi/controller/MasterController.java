@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.activenture.payment.Paymentapi.dao.ItemDao;
 import com.activenture.payment.Paymentapi.dao.StateDao;
+import com.activenture.payment.Paymentapi.dao.UserDao;
 import com.activenture.payment.Paymentapi.dao.UserTypeDao;
 import com.activenture.payment.Paymentapi.entity.Item;
 import com.activenture.payment.Paymentapi.entity.State;
+import com.activenture.payment.Paymentapi.entity.User;
 import com.activenture.payment.Paymentapi.entity.UserType;
 import com.activenture.payment.Paymentapi.response.MasterResponse;
 
@@ -66,9 +68,24 @@ public class MasterController {
 	UserTypeDao userTypeDao;
 	
 	@PostMapping("/save-usertype")
-	public UserType saveUserType(UserType userType){
+	public UserType saveUserType(@RequestBody UserType userType){
 		System.out.println(userType);
 		return userTypeDao.saveUserInfo(userType);
+	}
+	
+	
+	@Autowired
+	UserDao userDao;
+	
+	
+	@PostMapping("/save-user")
+	public User saveUser(@RequestBody User user) {
+		return userDao.saveUser(user);
+	}
+	
+	@GetMapping("/getusers")
+	public List<User> getAllUser(){
+		return userDao.getAllUser();
 	}
 
 }

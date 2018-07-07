@@ -2,8 +2,10 @@ package com.activenture.payment.Paymentapi.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,16 +26,27 @@ public class User {
 	@Column(name="user_password", nullable=false)
 	private String userPassword;
 	
-	@OneToOne
-	@JoinColumn(name="user_type_fk")
+	@Column(name="user_type_fk", nullable=false)
+	Long userTypeId;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="user_type_fk", referencedColumnName="id", insertable=false, updatable=false)
 	private UserType userType;
 	
 	@Column(name="created_at")
 	private Date createdAt=new Date();
 	
 	@Column(name="is_active")
-	private boolean isActive=true;
+	private int isActive=1;
 
+
+	
+	
+	
+	
+	
+	
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -56,6 +69,16 @@ public class User {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+		
+		
+	}
+	
+	public Long getUserTypeId() {
+		return userTypeId;
+	}
+
+	public void setUserTypeId(Long userTypeId) {
+		this.userTypeId = userTypeId;
 	}
 
 	public UserType getUserType() {
@@ -74,15 +97,12 @@ public class User {
 		this.createdAt = createdAt;
 	}
 
-	public boolean isActive() {
+	public int getIsActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean isActive) {
+	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
-	
-	
-	
 	
 }
