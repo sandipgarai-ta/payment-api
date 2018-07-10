@@ -35,8 +35,10 @@ public class Client {
 	@Column(name="client_name")
 	private String clientName;
 	
+	@Column(name="state_id_fk", nullable=false)
+	Long stateId;
 	@OneToOne
-	@JoinColumn(name="m_state")
+	@JoinColumn(name="state_id_fk",referencedColumnName="id", insertable=false, updatable=false)
 	private State state;
 	
 	@Column(name="client_email")
@@ -55,6 +57,22 @@ public class Client {
 	
 	
 	
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Long getStateId() {
+		return stateId;
+	}
+
+	public void setStateId(Long stateId) {
+		this.stateId = stateId;
+	}
+
 	public long getId() {
 		return id;
 	}

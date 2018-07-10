@@ -31,7 +31,7 @@ public class Item {
 	private Date createdAt=new Date();
 	
 	@Column(name="is_active")
-	private boolean isActive=true;
+	private int isActive=1;
 
 	
 	
@@ -77,13 +77,14 @@ public class Item {
 		this.createdAt = createdAt;
 	}
 
-	public boolean isActive() {
+	public int getIsActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean isActive) {
+	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
+	
 	
 	
 	

@@ -38,7 +38,7 @@ public class OrderInfo {
 	@Column(name="price")
 	private int totalItemPrice;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="billing_id")
 	private Billing billingId;
 

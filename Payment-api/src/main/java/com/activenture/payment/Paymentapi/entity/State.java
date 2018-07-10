@@ -24,11 +24,14 @@ public class State {
 	private String stateName;
 	
 	@Column(name="is_active")
-	private boolean isActive=true;
+	private int isActive=1;
 	
 	@Column(name="created_at")
 	private Date createdAt=new Date();
 
+	
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -52,12 +55,13 @@ public class State {
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
 	}
+	
 
-	public boolean isActive() {
+	public int getIsActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean isActive) {
+	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
 

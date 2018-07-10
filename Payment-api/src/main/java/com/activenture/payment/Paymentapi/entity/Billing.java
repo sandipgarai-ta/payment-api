@@ -25,10 +25,8 @@ public class Billing {
 	@Column(name="created_at")
 	private Date createdAt=new Date();
 	
-	
 	@Column(name="is_active")
-	private boolean isActive=true;
-	
+	private int isActive=1;
 	
 	@Column(name="created_user_fk")
 	Long createdUserId;
@@ -36,16 +34,35 @@ public class Billing {
 	@JoinColumn(name="created_user_fk", referencedColumnName="id", insertable=false, updatable=false)
 	private User createdBy;
 	
-	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="client_fk", referencedColumnName="id")
 	private Client client;
 	
-	
-	@Column(name="order_details_fk")
-	Long orderInfoId;
-	@OneToMany(mappedBy="billingId", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<OrderInfo> orderInfo;
+	
+	@Column(name="total_bill_amt")
+	private String totalBillingAmt;
+	
+	@Column(name="tax_cgst")
+	private String cgst;
+	
+	@Column(name="tax_sgst")
+	private String sgst;
+	
+	@Column(name="tax_igst")
+	private String igst;
+	
+	@Column(name="gross_total")
+	private String grossTotal;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -61,10 +78,10 @@ public class Billing {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	public boolean isActive() {
+	public int isActive() {
 		return isActive;
 	}
-	public void setActive(boolean isActive) {
+	public void setActive(int isActive) {
 		this.isActive = isActive;
 	}
 	public Long getCreatedUserId() {
@@ -85,17 +102,47 @@ public class Billing {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Long getOrderInfoId() {
-		return orderInfoId;
-	}
-	public void setOrderInfoId(Long orderInfoId) {
-		this.orderInfoId = orderInfoId;
-	}
 	public List<OrderInfo> getOrderInfo() {
 		return orderInfo;
 	}
 	public void setOrderInfo(List<OrderInfo> orderInfo) {
 		this.orderInfo = orderInfo;
+	}
+	public String getTotalBillingAmt() {
+		return totalBillingAmt;
+	}
+	public void setTotalBillingAmt(String totalBillingAmt) {
+		this.totalBillingAmt = totalBillingAmt;
+	}
+	public String getCgst() {
+		return cgst;
+	}
+	public void setCgst(String cgst) {
+		this.cgst = cgst;
+	}
+	public String getSgst() {
+		return sgst;
+	}
+	public void setSgst(String sgst) {
+		this.sgst = sgst;
+	}
+	public String getIgst() {
+		return igst;
+	}
+	public void setIgst(String igst) {
+		this.igst = igst;
+	}
+	public String getGrossTotal() {
+		return grossTotal;
+	}
+	public void setGrossTotal(String grossTotal) {
+		this.grossTotal = grossTotal;
+	}
+	public int getIsActive() {
+		return isActive;
+	}
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
 	}
 	
 	

@@ -173,38 +173,70 @@ RESPONSE=
 
 2) PAYMENT REQUEST
 =======================================================================
-URL=/api/masterdata
+URL=/api/billing/save
 METHOD=POST 
 REQUEST:
-
 {
-	"clientName":"",
-	"clientGST":"",
-	"email":"",
-	"contact":"",
-	"address":"",
-	"state":"",
-	"orderInfo" : {
-		"orderItem":[
-			{
-				"item":"",
-				"details":"",
-				"quantity":"",
-				"pkg_amount":"",
-				"total_amt":""
-			},
-			{
-				"item":"",
-				"details":"",
-				"quantity":"",
-				"pkg_amount":"",
-				"total_amt":""
-			}
-		],
-		"totalAmount":"",
-		"cgst":"",
-		"sgst":"",
-		"igst":"",
-		"grossTotal":""
-	}
+	"createdUserId":"4",
+	"client":{
+		"userId":"4",
+		"clientName":"Client-1",
+		"stateId":"1",
+		"email":"client1@gmail.com",
+		"phone":"9876543210",
+		"gstinNumber":"gstin12345",
+		"clientAddress":"Client-1 Address"
+	},
+	"orderInfo":[
+		{
+			"itemId":"1",
+			"itemDesc":"AAAAAA",
+			"quantity":"2",
+			"totalItemPrice":"5000"
+		}
+	],
+	"totalBillingAmt":"5000",
+	"cgst":"0.00",
+	"sgst":"0.00",
+	"igst":"900.00",
+	"grossTotal":"5900.00"
+}
+
+RESPONSE=
+{
+    "id": 13,
+    "createdAt": "2018-07-10T07:25:42.873+0000",
+    "isActive": 1,
+    "createdUserId": 4,
+    "createdBy": null,
+    "client": {
+        "id": 14,
+        "createdAt": "2018-07-10T07:25:42.873+0000",
+        "userId": 4,
+        "createdBy": null,
+        "clientName": "Client-1",
+        "stateId": 1,
+        "state": null,
+        "email": "client1@gmail.com",
+        "phone": "9876543210",
+        "gstinNumber": "gstin12345",
+        "clientAddress": "Client-1 Address",
+        "active": true
+    },
+    "orderInfo": [
+        {
+            "id": 15,
+            "itemId": 1,
+            "item": null,
+            "itemDesc": "AAAAAA",
+            "quantity": 2,
+            "totalItemPrice": 5000,
+            "billingId": null
+        }
+    ],
+    "totalBillingAmt": "5000",
+    "cgst": "0.00",
+    "sgst": "0.00",
+    "igst": "900.00",
+    "grossTotal": "5900.00"
 }
